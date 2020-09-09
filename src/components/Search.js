@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Search = ({ getAcc }) => {
+const Search = ({ getUser }) => {
+  //states and var initialization
   let twitterLink = 'https://twitter.com/';
   const [user, setUser] = useState('');
   const [profPage, setProfPage] = useState('');
   const [search, setSearch] = useState('');
+
+  //sets up a value for getUser() to transfer
+  useEffect(() => {
+    getUser(user);
+  },[getUser, user]);
 
   const handleSubmit = e => {
     e.preventDefault();
